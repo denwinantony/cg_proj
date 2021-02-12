@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crew Generator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="stylesheet" href="css\bootstrap.min.css">
+	<script type="text/javascript" src="js\jquery.min.js"></script>
+	<script type="text/javascript" src="js\bootstrap.min.js"></script>
+	<script type="text/javascript" src="js\all.min.js"></script>
+	<script type="text/javascript" src="js\jquery.waypoints.min.js"></script>
+	<script type="text/javascript" src="js\waypoints.js"></script>
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" type="text/css" href="form.css">
+	<link rel="stylesheet" type="text/css" href="css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/waypoints.css">
+
+</head>
+<body  onload="hideloader()" >
+
+	<!--Home-->
+	<div id="overlay">
+		<div id="loading"></div>
+	</div>
+
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top ">
+		<a href="index.html" class="link"> crew generator</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive ">
+			<div id="nav-icon1">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+					<a class="nav-link  " href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="indilogin.html">Individual</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="teamlogin.html">Team</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="bookinglogin.html">Booking</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link " href="more.html">More</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+
+<div class='bold-line'></div>
+	<div class='container'>
+	  <div class='window'>
+	    <div class='overlay'></div>
+	    <div class='content'>
+	      <div class='welcome'>Hello There!</div>
+	      <div class='subtitle'>We're almost done. Before using our services you need to login or create an account.</div>
+	      <form name="form1" method="post" action="indilogin.php" onSubmit="return check();">
+	      	<div class='input-fields'>
+	        <input type='email' name="email" id="email" placeholder='Email' class='input-line full-width'></input>
+	        <input type='password' name="pass" id="pass" placeholder='Password' class='input-line full-width'></input>
+	      	</div>
+	  	  
+	      <div class='spacing'>or create new account <span class='highlight'><a href="indisignup.html">Signup</a></span></div>
+	      <div><input type="submit"  name="Login" value="Login" class='ghost-round full-width'>
+	      </div>
+	      </form>
+	    </div>
+	  </div>
+	</div>
+		
+
+
+
+<div id="contact" class="offset">
+		<footer class="container-fluid">
+			<div class="row justify-content-center">
+				<div class="col-md-5 text-center">
+					<img src="Img/logo1.png">
+					<p>some text based on the content.some text based on the
+			   			content.some text based on the content.some text based 
+			   			on the content.some text based on the
+			   			content.some text based on the content.</p>
+			   		<strong>Contact:</strong>
+			   		<p>987-654-3210<br>email@gmail.com</p>	
+
+			   		<a href="" target="_blank"><i class="fab fa-facebook-square"></i></a>	   		
+			   		<a href="" target="_blank"><i class="fab fa-twitter-square"></i></a>	   		
+			   		<a href="" target="_blank"><i class="fab fa-instagram"></i></a>	   		
+				</div>
+				<hr class="socket">
+				&copy: Rp.
+			</div>
+		</footer>
+	</div>
+
+</body>
+</html>
+<script type="text/javascript">
+	$(document).ready(function(){
+	$('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
+		$(this).toggleClass('open');
+	});
+});
+
+
+function hideloader()
+{
+	document.getElementById("overlay").style.display="none";
+}
+
+
+
+</script>
+
+<script type="text/javascript">
+	console.clear();
+
+	const loginBtn = document.getElementById('login');
+	const signupBtn = document.getElementById('signup');
+
+	loginBtn.addEventListener('click', (e) => {
+		let parent = e.target.parentNode.parentNode;
+		Array.from(e.target.parentNode.parentNode.classList).find((element) => {
+			if(element !== "slide-up") {
+				parent.classList.add('slide-up')
+			}else{
+				signupBtn.parentNode.classList.add('slide-up')
+				parent.classList.remove('slide-up')
+			}
+		});
+	});
+
+	signupBtn.addEventListener('click', (e) => {
+		let parent = e.target.parentNode;
+		Array.from(e.target.parentNode.classList).find((element) => {
+			if(element !== "slide-up") {
+				parent.classList.add('slide-up')
+			}else{
+				loginBtn.parentNode.parentNode.classList.add('slide-up')
+				parent.classList.remove('slide-up')
+			}
+		});
+	});
+</script>
+<script language="javascript">
+function check()
+{
+
+ if(document.form1.lid.value=="")
+  {
+    alert("Plese Enter Login Id");
+	document.form1.lid.focus();
+	return false;
+  }
+ 
+ if(document.form1.pass.value=="")
+  {
+    alert("Plese Enter Your Password");
+	document.form1.pass.focus();
+	return false;
+  } 
+  if(document.form1.cpass.value=="")
+  {
+    alert("Plese Enter Confirm Password");
+	document.form1.cpass.focus();
+	return false;
+  }
+  if(document.form1.pass.value!=document.form1.cpass.value)
+  {
+    alert("Confirm Password does not matched");
+	document.form1.cpass.focus();
+	return false;
+  }
+  if(document.form1.name.value=="")
+  {
+    alert("Plese Enter Your Name");
+	document.form1.name.focus();
+	return false;
+  }
+  if(document.form1.address.value=="")
+  {
+    alert("Plese Enter Address");
+	document.form1.address.focus();
+	return false;
+  }
+  if(document.form1.city.value=="")
+  {
+    alert("Plese Enter City Name");
+	document.form1.city.focus();
+	return false;
+  }
+  if(document.form1.phone.value=="")
+  {
+    alert("Plese Enter Contact No");
+	document.form1.phone.focus();
+	return false;
+  }
+  if(document.form1.email.value=="")
+  {
+    alert("Plese Enter your Email Address");
+	document.form1.email.focus();
+	return false;
+  }
+  e=document.form1.email.value;
+		f1=e.indexOf('@');
+		f2=e.indexOf('@',f1+1);
+		e1=e.indexOf('.');
+		e2=e.indexOf('.',e1+1);
+		n=e.length;
+
+		if(!(f1>0 && f2==-1 && e1>0 && e2==-1 && f1!=e1+1 && e1!=f1+1 && f1!=n-1 && e1!=n-1))
+		{
+			alert("Please Enter valid Email");
+			document.form1.email.focus();
+			return false;
+		}
+  return true;
+  }
